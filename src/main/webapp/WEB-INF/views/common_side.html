@@ -1,0 +1,33 @@
+<th:block th:fragment="menu_css">
+    <link rel="stylesheet" th:href="@{/css/pure-min.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</th:block>
+
+<th:block th:fragment="menu_js">
+    <script th:src="@{/js/pure/ui.js}"></script>
+</th:block>
+
+<th:block th:fragment="menu">
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="#company">KEN的測試網站</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="./index.html" class="pure-menu-link">主頁</a></li>
+                <li class="pure-menu-item"><a href="#about" class="pure-menu-link">關於</a></li>
+
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="#" class="pure-menu-link">服務</a>
+                </li>
+
+                <li class="pure-menu-item"><a href="javascript:void(0)" onclick="toResume()" class="pure-menu-link">履歷</a></li>
+                <li class="pure-menu-item"><a href="javascript:void(0)" onclick="toResume2()" class="pure-menu-link">履歷2</a></li>
+                <li class="pure-menu-item"><a href="javascript:void(0)" onclick="sendGet('./to_servlet_ajax', {name: 'KEN'})"
+                        class="pure-menu-link">Ajax</a></li>
+                <li class="pure-menu-item"><a href="javascript:void(0)" onclick="sendGet('./cookie')"
+                    class="pure-menu-link">Case: Cookie</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="split"></div>
+</th:block>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+    <title>Responsive Side Menu &ndash; Layout Examples &ndash; Pure</title>
+    <!-- <link rel="stylesheet" href="static/css/pure-min.css"> -->
+    <!-- <link rel="stylesheet" href="static/css/index.css"> -->
+    <link rel="stylesheet" th:href="@{/css/pure-min.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+
+        <div id="menu">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="#company">KEN的測試網站</a>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="./index.html" class="pure-menu-link">主頁</a></li>
+                    <li class="pure-menu-item"><a href="#about" class="pure-menu-link">關於</a></li>
+
+                    <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                        <a href="#" class="pure-menu-link">服務</a>
+                    </li>
+
+                    <li class="pure-menu-item"><a href="javascript:void(0)" onclick="toResume()" class="pure-menu-link">履歷</a></li>
+                    <li class="pure-menu-item"><a href="javascript:void(0)" onclick="toResume2()" class="pure-menu-link">履歷2</a></li>
+                    <li class="pure-menu-item"><a href="javascript:void(0)" onclick="sendGet('./to_servlet_ajax', {name: 'KEN'})"
+                            class="pure-menu-link">Ajax</a></li>
+                    <li class="pure-menu-item"><a href="javascript:void(0)" onclick="sendGet('./cookie')"
+                        class="pure-menu-link">Case: Cookie</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <!-- emmet 語法 -->
+            <!-- <h1>Hello WEB-INF index.html !!</h1> -->
+            <div class="header">
+                <h1 style="color: 	#0000C6; ">KEN的測試網站</h1>
+                <h2>基本HTML.CSS.JAVASCRIPT練習</h2>
+            </div>
+            <br>
+            <br>
+            <div class="content">
+                <h2 style="font-size: 35px;">我所使用的工具</h2>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br> 
+
+            <div class="content">
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive"
+                        src="https://d1.awsstatic.com/sdks-and-tools/eclipse%20icon%201.3778a4cbe978d8dfd73c091706e26aa6c57c65aa.jpeg" alt="eclipse" width="200" height="200" style="float: center;"> 
+                </div>
+                <h2 class="content-subhead">Eclipse</h2>
+                <p>
+                    Eclipse是一款跨平台開源整合式開發環境（IDE）。最初主要用來Java語言開發，目前亦有人通過外掛程式使其作為C++、Python、PHP等其他語言的開發工具。
+                    Eclipse的本身只是一個框架平台，但是眾多外掛程式的支援，使得Eclipse擁有較佳的靈活性，所以許多軟體開發商以Eclipse為框架開發自己的IDE。
+                </p>
+
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/200px-HTML5_logo_and_wordmark.svg.png" alt="html" width="200" height="200">
+                </div>
+                <h2 class="content-subhead">HTML</h2>
+                <p>
+                    超文本標記語言（英語：HyperText Markup Language，簡稱：HTML）是一種用於建立網頁的標準標記語言。HTML是一種基礎技術，常與CSS、JavaScript一起被眾多網站用於設計網頁、網頁應用程式以及行動應用程式的使用者介面[3]。網頁瀏覽器可以讀取HTML檔案，並將其彩現成視覺化網頁。HTML描述了一個網站的結構語意隨著線索的呈現，使之成為一種標記語言而非程式語言。
+                </p>
+
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/220px-CSS3_logo_and_wordmark.svg.png" alt="css" width="200" height="200">
+                </div>
+                <h2 class="content-subhead">CSS</h2>
+                <p>
+                    階層式樣式表（英語：Cascading Style Sheets，縮寫：CSS；又稱串樣式列表、級聯樣式表、串接樣式表、階層式樣式表）是一種用來為結構化文件（如HTML文件或XML應用）添加樣式（字型、間距和顏色等）的電腦語言，由W3C定義和維護。CSS3現在已被大部分現代瀏覽器支援，而下一版的CSS4仍在開發中。
+                </p>
+
+                <div class="pure-u-1-4">
+                    <img class="pure-img-responsive"
+                        src="https://i.imgur.com/ORm48Om.png" alt="javascript" width="200" height="200">
+                </div>
+                <h2 class="content-subhead">JavaScript</h2>
+                <p>
+                    JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言[8]。JavaScript是一門基於原型、頭等函式的語言[9]，是一門多範式的語言，它支援物件導向程式設計，指令式編程，以及函式語言程式設計。它提供語法來操控文字、陣列、日期以及正規表示式等，不支援I/O，比如網路、儲存和圖形等，但這些都可以由它的宿主環境提供支援。它已經由ECMA（歐洲電腦製造商協會）透過ECMAScript實作語言的標準化[8]。它被世界上的絕大多數網站所使用，也被世界主流瀏覽器（Chrome、IE、Firefox、Safari、Opera）支援。
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/pure/ui.js"></script>
+    <script>
+        function toResume2() {
+            console.log('toResume2....');
+            let finalUrl = ['/', location.pathname.split('/')[1], '/route/resume2'].join('');
+            let aLink = document.createElement('a');
+            aLink['href'] = finalUrl;
+            aLink.click();
+        }
+        function toResume() {
+            console.log('toResume....');
+            let finalUrl = ['/', location.pathname.split('/')[1], '/route/resume'].join('');
+            $.ajax({
+                type: 'GET',
+                url: finalUrl,
+                success: function (modelAndView) {
+                    $('html').html(modelAndView);
+                },
+                error: function (err) {
+                    console.error(err)
+                    alert('資料有誤')
+                }
+            })
+        }
+        function ajaxTest() {
+            console.log('ajaxTest....');
+            let finalUrl = ['/', location.pathname.split('/')[1], '/route/ajax_test'].join('');
+            $.ajax({
+                type: 'GET',
+                url: finalUrl,
+                dataType: 'json',
+                data: {name: 'kenn'},
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (err) {
+                    console.error(err)
+                    alert('資料有誤')
+                }
+            })
+        }
+        function sendGet(url, obj) {
+            console.log('發送 GET 請求')
+            // let nameVal = document.getElementById('name').value
+            debugger
+            let finalUrl = url + (obj ? '?' + toParam(obj) : '')
+            $.ajax({
+                type: 'GET',
+                url: finalUrl,
+                success: function (data) {
+                    $('#main').html(data)
+                },
+                error: function (err) {
+                    console.error(err)
+                    alert('資料有誤')
+                }
+            })
+        }
+        function toParam(obj) {
+            let keys = Object.keys(obj)
+            let param = ''
+            for (let idx in keys)
+                param += (keys[idx] + '=' + obj[keys[idx]] + '&')
+            return param.substring(0, param.length - 1)
+        }
+    </script>
+</body>
+
+</html>
