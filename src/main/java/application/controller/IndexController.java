@@ -16,9 +16,21 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = { "/", "/{idx}" })
-    public ModelAndView index(@PathVariable("idx") String idx) {
+    /**
+     * [首頁]
+     * 
+     * @author cano.su
+     * @since 2022/04/30
+     */
+    @RequestMapping("/")
+    public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("index");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/{idx}" })
+    public ModelAndView index(@PathVariable("idx") String idx) {
+        ModelAndView modelAndView = new ModelAndView("index_sample");
         modelAndView.addObject("user", "KEN WEB");
         modelAndView.addObject("data", "kennnnnnn");
         boolean flag = false;

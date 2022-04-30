@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+</head>
+
+<body>
+    INDEX Spring MVC !!
+    <span th:text="${user}"></span>
+    <input type="text" th:value="${data}">
+    <div style="border: 1px solid red" th:if="${flag}">
+        <th:block>
+            <div th:include="aaa::template1"></div>
+        </th:block>
+    </div>
+    <div style="border: 1px solid blue" th:unless="${flag}">
+        <th:block>
+            <div th:replace="aaa::template2"></div>
+        </th:block>
+    </div>
+</body>
+
+</html>

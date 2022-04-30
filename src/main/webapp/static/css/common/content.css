@@ -1,0 +1,9 @@
+/** 內容樣式 */
+#content {
+    position        : relative;
+    float           : left;
+    width           : calc(100% - 150px);
+    margin-left     : 150px;
+    padding         : 20px 25px;
+    background-color: white;
+}
