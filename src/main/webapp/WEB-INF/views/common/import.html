@@ -1,11 +1,25 @@
 <th:block th:fragment="css">
+
     <link rel="stylesheet" th:href="@{css/pure-min.css}">
     <link rel="stylesheet" th:href="@{css/common/menu.css}">
+
+    <!-- v5.1.3 -->
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap-5.1.3/bootstrap.min.css}">
 
     <!-- CUSTOM -->
     <link rel="stylesheet" th:href="@{css/common/content.css}">
 </th:block>
 
 <th:block th:fragment="js">
+
+    <!-- v3.5.1 -->
+    <script th:src="@{js/jquery/jquery.min.js(v=${timestamp})}"></script>
+
+    <!-- v1.12.1 -->
+    <script th:src="@{js/jquery/jquery-ui.min.js(v=${timestamp})}"></script>
+
+    <!-- v5.1.3 -->
+    <script type="text/javascript" th:src="@{js/bootstrap-5.1.3/bootstrap.bundle.min.js}"></script>
+
     <script th:src="@{js/pure/ui.js}"></script>
 </th:block>
