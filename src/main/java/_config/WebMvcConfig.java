@@ -25,7 +25,11 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
  * @since 2022/04/27
  */
 @EnableWebMvc
-@ComponentScan({"application.controller"})
+@ComponentScan({
+    "*.controller",
+    "*.service",
+    "*.dao",
+})
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 

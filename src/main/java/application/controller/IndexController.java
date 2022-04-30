@@ -28,7 +28,7 @@ public class IndexController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/{idx}" })
+    @RequestMapping(value = { "/test/{idx}" })
     public ModelAndView index(@PathVariable("idx") String idx) {
         ModelAndView modelAndView = new ModelAndView("index_sample");
         modelAndView.addObject("user", "KEN WEB");
