@@ -1,0 +1,8 @@
+
+1 先執行 DDL
+2 各表格 DML 執行順序
+	a. members
+	b. accounts
+	c. subjects
+	d. acc_journals
+	e. acc_cash
