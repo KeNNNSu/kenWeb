@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日記帳/現金帳</title>
+
+    <th:block th:replace="common/import :: css" />
+    <th:block th:replace="common/import :: js" />
+
+    <script th:inline="javascript">
+        var $journalList = /*[[${ journalList }]]*/'日記帳/現金帳 列表';
+        // var $journalList = [[${ journalList }]];
+
+    </script>
+
+    <script th:src="@{js/journal.js}"></script>
+
+</head>
+
+<body>
+    <th:block th:replace="common/menu" />
+    <div id="content">
+        <h1>JOURNAL</h1>
+        <br />
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">ADD</button>
+        <br /><br />
+        <table class="table table-striped table-hover">
+            <tbody id="table"></tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">新增日記帳</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 日期 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">日期</span>
+                        <input type="date" id="recordDate" class="form-control">
+                    </div>
+                    <!-- 借項 -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="debit">借項</label>
+                        <select class="form-select" id="debit">
+                            <option selected disabled="true" value="-1">Choose...</option>
+                            <th:block th:each="subject: ${subjectList}">
+                                <option th:value="${subject.code}" th:text="${subject.code + ' ' + subject.name}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <!-- 貸項 -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="credit">貸項</label>
+                        <select class="form-select" id="credit">
+                            <option selected disabled="true" value="-1">Choose...</option>
+                            <th:block th:each="subject: ${subjectList}">
+                                <option th:value="${subject.code}" th:text="${subject.code + ' ' + subject.name}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <!-- 金額 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">金額</span>
+                        <input type="number" class="form-control" id="amount" placeholder="amount">
+                    </div>
+                    <!-- 項目 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">項目</span>
+                        <input type="text" class="form-control" id="item" placeholder="item">
+                    </div>
+                    <!-- 地點 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">地點</span>
+                        <input type="text" class="form-control" id="place" placeholder="place">
+                    </div>
+                    <!-- 誰 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">誰</span>
+                        <input type="text" class="form-control" id="who" placeholder="who">
+                    </div>
+                    <!-- 帳號 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">帳號</span>
+                        <input type="number" class="form-control" id="accountId" value="1" disabled="disabled">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addCancel">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="add()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="modal fade" id="modifyModal" data-id="" tabindex="-1" aria-labelledby="modifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifyModalLabel">編輯日記帳</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 日期 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">日期</span>
+                        <input type="date" id="modifyRecordDate" class="form-control">
+                    </div>
+                    <!-- 借項 -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="debit">借項</label>
+                        <select class="form-select" id="modifyDebit">
+                            <option selected disabled="true" value="-1">Choose...</option>
+                            <th:block th:each="subject: ${subjectList}">
+                                <option th:value="${subject.code}" th:text="${subject.code + ' ' + subject.name}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <!-- 貸項 -->
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="credit">貸項</label>
+                        <select class="form-select" id="modifyCredit">
+                            <option selected disabled="true" value="-1">Choose...</option>
+                            <th:block th:each="subject: ${subjectList}">
+                                <option th:value="${subject.code}" th:text="${subject.code + ' ' + subject.name}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <!-- 金額 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">金額</span>
+                        <input type="number" class="form-control" id="modifyAmount" placeholder="amount">
+                    </div>
+                    <!-- 項目 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">項目</span>
+                        <input type="text" class="form-control" id="modifyItem" placeholder="item">
+                    </div>
+                    <!-- 地點 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">地點</span>
+                        <input type="text" class="form-control" id="modifyPlace" placeholder="place">
+                    </div>
+                    <!-- 誰 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">誰</span>
+                        <input type="text" class="form-control" id="modifyWho" placeholder="who">
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="modifyCancel">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="modify()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

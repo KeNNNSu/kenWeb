@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="../static/css/bootstrap-5.1.3/bootstrap.min.css">
     <script type="text/javascript" src="../static/js/bootstrap-5.1.3/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
+    
     <link type="text/css" rel="stylesheet" href="../static/css/user.css">
     <script type="text/javascript" src="../static/js/user.js"></script>
 </head>
