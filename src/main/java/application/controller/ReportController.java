@@ -31,7 +31,7 @@ public class ReportController {
         dataList.add(new DonutChartData("Watch TV", 2));
         dataList.add(new DonutChartData("Sleep", 7));
         DonutChartIncome donutChartIncome = new DonutChartIncome(dataList);
-        modelAndView.addObject("incomeTableData", donutChartIncome.toJson());
+        modelAndView.addObject("incomeTableData", donutChartIncome.transforModel());
         modelAndView.addObject("payTableData", "");
         return modelAndView;
 

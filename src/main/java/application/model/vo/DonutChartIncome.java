@@ -36,14 +36,14 @@ public class DonutChartIncome {
         this.donutChartDatas = donutChartDatas;
     }
 
-    public String toJson() {
-        try {
-            return new ObjectMapper().writeValueAsString(transforModel());
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            throw new IllegalArgumentException("Json 轉換錯誤!!");
-        }
-    }
+//    public String toJson() {
+//        try {
+//            return new ObjectMapper().writeValueAsString(transforModel());
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//            throw new IllegalArgumentException("Json 轉換錯誤!!");
+//        }
+//    }
 
     public List<List<Object>> transforModel() {
         List<List<Object>> donutChartModelData = new ArrayList<>();
