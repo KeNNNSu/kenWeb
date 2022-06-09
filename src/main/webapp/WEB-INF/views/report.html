@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>報表</title>
+
+    <th:block th:replace="common/import :: css" />
+    <th:block th:replace="common/import :: js" />
+
+    <script th:inline="javascript">
+        var json = /*[[${ incomeTableData }]]*/'報表 income 列表';
+        var $incomeTableData = JSON.parse(json);
+
+    </script>
+
+    <link type="text/css" rel="stylesheet" th:href="@{css/report.css}">
+    <script th:src="@{js/googlecharts/loader.js}"></script>
+    <script th:src="@{js/report.js}"></script>
+
+</head>
+
+<body>
+    <th:block th:replace="common/menu" />
+    <div id="content">
+        <h1>REPORT</h1>
+        <br />
+
+        <div class="row">
+            <div class="col">
+                <div class="chartCenter" id="donutchart1" style="width: 800px; height: 500px;"></div>
+            </div>
+            <div class="col">
+                <div class="chartCenter" id="donutchart2" style="width: 800px; height: 500px;"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
