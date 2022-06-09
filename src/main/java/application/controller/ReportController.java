@@ -24,16 +24,19 @@ public class ReportController {
     @RequestMapping("/report")
     public ModelAndView page() {
         ModelAndView modelAndView = new ModelAndView("report");
+        modelAndView.addObject("incomeTableData", getDonutChartIncome().transforModel());
+        modelAndView.addObject("payTableData", "");
+        return modelAndView;
+    }
+
+    private DonutChartIncome getDonutChartIncome() {
         List<DonutChartData> dataList = new ArrayList<>();
         dataList.add(new DonutChartData("Work", 11));
         dataList.add(new DonutChartData("Eat", 2));
         dataList.add(new DonutChartData("Commute", 2));
         dataList.add(new DonutChartData("Watch TV", 2));
         dataList.add(new DonutChartData("Sleep", 7));
-        DonutChartIncome donutChartIncome = new DonutChartIncome(dataList);
-        modelAndView.addObject("incomeTableData", donutChartIncome.transforModel());
-        modelAndView.addObject("payTableData", "");
-        return modelAndView;
+        return new DonutChartIncome(dataList);
 
     }
 
