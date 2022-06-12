@@ -9,6 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import application.model.vo.DonutChartIncome;
 import application.model.vo.DonutChartIncome.DonutChartData;
+import application.model.vo.DonutChartPay;
+import application.model.vo.DonutChartPay.DonutChartData2;
 
 /**
  * <p>
@@ -25,7 +27,7 @@ public class ReportController {
     public ModelAndView page() {
         ModelAndView modelAndView = new ModelAndView("report");
         modelAndView.addObject("incomeTableData", getDonutChartIncome().transforModel());
-        modelAndView.addObject("payTableData", "");
+        modelAndView.addObject("payTableData", getDonutChartPay().transforModel());
         return modelAndView;
     }
 
@@ -40,4 +42,15 @@ public class ReportController {
 
     }
 
+    private DonutChartPay getDonutChartPay() {
+        //    下面命名是否可一樣?
+        List<DonutChartData2> dataList =new ArrayList<>();
+        dataList.add(new DonutChartData2("Watch TV", 3));
+        dataList.add(new DonutChartData2("Work", 6));
+        dataList.add(new DonutChartData2("Sleep", 8));
+        dataList.add(new DonutChartData2("Eat", 5));
+        dataList.add(new DonutChartData2("Commute", 4));
+        return new DonutChartPay(dataList);
+
+    }
 }
