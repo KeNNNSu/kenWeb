@@ -67,7 +67,7 @@ function buildtable(journalList) {
                 <td>` + journal.plusOrMinusSign + `</td>
                 <td id="jAmount` + id + `">` + journal.amount + `</td>
                 <td>
-                    <span id="jItem` + id + `">` + journal.item + `</span><br>`
+                    <span id="jItem` + id + `">` + formatData(journal.item) + `</span><br>`
             + `<span id="jPlace` + id + `">` + journal.place + `</span><br>`
             + `<span id="jWho` + id + `">` + journal.who + `</span></td>
                 <td>` + journal.accountName + `</td>
@@ -78,6 +78,10 @@ function buildtable(journalList) {
                 </td>
             </tr>
         `;
+
+        function formatData(text) {
+
+        }
     }
 }
 
