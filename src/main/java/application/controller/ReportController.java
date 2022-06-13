@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import application.model.vo.DonutChartIncome;
-import application.model.vo.DonutChartIncome.DonutChartData;
+import application.model.vo.DonutChartIncome.DonutChartIncomeData;
 import application.model.vo.DonutChartPay;
-import application.model.vo.DonutChartPay.DonutChartData2;
+import application.model.vo.DonutChartPay.DonutChartPayData;
 
 /**
  * <p>
@@ -32,24 +32,23 @@ public class ReportController {
     }
 
     private DonutChartIncome getDonutChartIncome() {
-        List<DonutChartData> dataList = new ArrayList<>();
-        dataList.add(new DonutChartData("Work", 11));
-        dataList.add(new DonutChartData("Eat", 2));
-        dataList.add(new DonutChartData("Commute", 2));
-        dataList.add(new DonutChartData("Watch TV", 2));
-        dataList.add(new DonutChartData("Sleep", 7));
+        List<DonutChartIncomeData> dataList = new ArrayList<>();
+        dataList.add(new DonutChartIncomeData("Work", 11));
+        dataList.add(new DonutChartIncomeData("Eat", 2));
+        dataList.add(new DonutChartIncomeData("Commute", 2));
+        dataList.add(new DonutChartIncomeData("Watch TV", 2));
+        dataList.add(new DonutChartIncomeData("Sleep", 7));
         return new DonutChartIncome(dataList);
 
     }
 
     private DonutChartPay getDonutChartPay() {
-        //    下面命名是否可一樣?
-        List<DonutChartData2> dataList =new ArrayList<>();
-        dataList.add(new DonutChartData2("Watch TV", 3));
-        dataList.add(new DonutChartData2("Work", 6));
-        dataList.add(new DonutChartData2("Sleep", 8));
-        dataList.add(new DonutChartData2("Eat", 5));
-        dataList.add(new DonutChartData2("Commute", 4));
+        List<DonutChartPayData> dataList =new ArrayList<>();
+        dataList.add(new DonutChartPayData("Watch TV", 3));
+        dataList.add(new DonutChartPayData("Work", 6));
+        dataList.add(new DonutChartPayData("Sleep", 8));
+        dataList.add(new DonutChartPayData("Eat", 5));
+        dataList.add(new DonutChartPayData("Commute", 4));
         return new DonutChartPay(dataList);
 
     }

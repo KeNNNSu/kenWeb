@@ -29,9 +29,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class DonutChartPay {
 
     private List<String> columnNames = Arrays.asList("Ken", "Happy Day");
-    private List<DonutChartData2> donutChartData2s;
+    private List<DonutChartPayData> donutChartData2s;
 
-    public DonutChartPay(List<DonutChartData2> donutChartData2s) {
+    public DonutChartPay(List<DonutChartPayData> donutChartData2s) {
         super();
         this.donutChartData2s = donutChartData2s;
     }
@@ -48,7 +48,7 @@ public class DonutChartPay {
     public List<List<Object>> transforModel() {
         List<List<Object>> donutChartModelData = new ArrayList<>();
         donutChartModelData.add(ofColumnNames());
-        for (DonutChartData2 data : donutChartData2s) {
+        for (DonutChartPayData data : donutChartData2s) {
             donutChartModelData.add(ofColumnValue(data));
         }
         return donutChartModelData;
@@ -58,16 +58,16 @@ public class DonutChartPay {
         return new ArrayList<>(columnNames);
     }
 
-    private List<Object> ofColumnValue(DonutChartData2 data) {
+    private List<Object> ofColumnValue(DonutChartPayData data) {
         return Arrays.asList(data.getKen(), data.getHappyDay());
     }
 
-    public static class DonutChartData2 {
+    public static class DonutChartPayData {
 
         private String ken;
         private int happyDay;
 
-        public DonutChartData2(String ken, int happyDay) {
+        public DonutChartPayData(String ken, int happyDay) {
             super();
             this.ken = ken;
             this.happyDay = happyDay;

@@ -29,9 +29,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class DonutChartIncome {
 
     private List<String> columnNames = Arrays.asList("Task", "Hours per Day");
-    private List<DonutChartData> donutChartDatas;
+    private List<DonutChartIncomeData> donutChartDatas;
 
-    public DonutChartIncome(List<DonutChartData> donutChartDatas) {
+    public DonutChartIncome(List<DonutChartIncomeData> donutChartDatas) {
         super();
         this.donutChartDatas = donutChartDatas;
     }
@@ -48,7 +48,7 @@ public class DonutChartIncome {
     public List<List<Object>> transforModel() {
         List<List<Object>> donutChartModelData = new ArrayList<>();
         donutChartModelData.add(ofColumnNames());
-        for (DonutChartData data : donutChartDatas) {
+        for (DonutChartIncomeData data : donutChartDatas) {
             donutChartModelData.add(ofColumnValue(data));
         }
         return donutChartModelData;
@@ -58,16 +58,16 @@ public class DonutChartIncome {
         return new ArrayList<>(columnNames);
     }
 
-    private List<Object> ofColumnValue(DonutChartData data) {
+    private List<Object> ofColumnValue(DonutChartIncomeData data) {
         return Arrays.asList(data.getTask(), data.getHoursPerDay());
     }
 
-    public static class DonutChartData {
+    public static class DonutChartIncomeData {
 
         private String task;
         private int hoursPerDay;
 
-        public DonutChartData(String task, int hoursPerDay) {
+        public DonutChartIncomeData(String task, int hoursPerDay) {
             super();
             this.task = task;
             this.hoursPerDay = hoursPerDay;

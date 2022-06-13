@@ -7,10 +7,10 @@ $(function () {
 
 function drawChart() {
 
-    build('donutchart1');
-    build2('donutchart2');
+    build('年收入', 'donutchart1', $incomeTableData);
+    build('年支出', 'donutchart2', $payTableData);
 
-    function build(donutChartId) {
+    function build(tableTitle, donutChartId, tableData) {
         // var data = google.visualization.arrayToDataTable([
         //     ['Task', 'Hours per Day'],
         //     ['Work', 11],
@@ -19,10 +19,10 @@ function drawChart() {
         //     ['Watch TV', 2],
         //     ['Sleep', 7]
         // ]);
-        let data = google.visualization.arrayToDataTable($incomeTableData);
+        let data = google.visualization.arrayToDataTable(tableData);
 
         var options = {
-            title: '年收入',
+            title: tableTitle,
             pieHole: 0.4,
         };
 
@@ -30,17 +30,7 @@ function drawChart() {
         chart.draw(data, options);
     }
 
-    function build2(donutChartId) {
-        let data = google.visualization.arrayToDataTable($payTableData);
-
-        var options = {
-            title: '年支出',
-            pieHole: 0.4,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById(donutChartId));
-        chart.draw(data, options);
-    }
+    
 }
 
 
