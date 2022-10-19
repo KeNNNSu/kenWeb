@@ -1,7 +1,7 @@
 /*<![CDATA[*/
 
 $(function () {
-    alert('載入完成');
+    //alert('載入完成');
     buildtable($memberList);
 })
 

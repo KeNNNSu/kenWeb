@@ -13,6 +13,7 @@
     <script th:inline="javascript">
         var $incomeTableData = /*[[${ incomeTableData }]]*/'報表 income 列表';
         var $payTableData = /*[[${ payTableData }]]*/'報表 pay 列表';
+        var $reportTableData = /*[[${ reportTableData }]]*/'報表資料';
     </script>
 
     <link type="text/css" rel="stylesheet" th:href="@{css/report.css}">
@@ -34,6 +35,10 @@
             <div class="col">
                 <div class="chartCenter" id="donutchart2" style="width: 800px; height: 500px;"></div>
             </div>
+        </div>
+
+        <div style="width: 1200px; margin: 0 auto;">
+            <div id="table_div"></div>
         </div>
 
     </div>

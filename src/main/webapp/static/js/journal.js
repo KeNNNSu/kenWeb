@@ -1,13 +1,12 @@
 /*<![CDATA[*/
 
 $(function () {
-    alert('載入完成');
     buildtable($journalList);
 
 })
 
 function queryAll() {
-    
+
     $.ajax({
         method: 'POST',
         url: 'journal/queryAll',
@@ -41,7 +40,7 @@ function buildtable(journalList) {
             <td>credit</td>
             <td>reduce/<br>increase</td>
             <td>amount</td>
-            <td>info</td>
+            <td style="width: 420px">info</td>
             <td>account</td>
             <td>timeModify</td>
             <td>operate</td>
@@ -67,9 +66,9 @@ function buildtable(journalList) {
                 <td>` + journal.plusOrMinusSign + `</td>
                 <td id="jAmount` + id + `">` + journal.amount + `</td>
                 <td>
-                    <span id="jItem` + id + `">` + formatData(journal.item) + `</span><br>`
-            + `<span id="jPlace` + id + `">` + journal.place + `</span><br>`
-            + `<span id="jWho` + id + `">` + journal.who + `</span></td>
+                    <span id="jItem` + id + `">` + journal.item + `</span><br>`
+            + `<span id="jPlace` + id + `">` + (journal.place ? journal.place : "") + `</span><br>`
+            + `<span id="jWho` + id + `">` + (journal.who || "") + `</span></td>
                 <td>` + journal.accountName + `</td>
                 <td>` + journal.timeModify + `</td>
                 <td>
@@ -80,8 +79,32 @@ function buildtable(journalList) {
         `;
 
         function formatData(text) {
+            let arr = part(text);
+            let domHtml = [];
+            for (let idx in arr) {
+                let bool = arr.length == idx + 1;
+                domHtml.push(arr[idx]);
+                domHtml.push('<br>');
+            }
+            domHtml.length = domHtml.length - 1;
+            return domHtml.join('');//.substring(0, domHtml.join('').length - '<br>'.length);
 
+            function part(text) {
+                let size = (text + '').length;
+                let arr = [];
+                let limit = 20;
+                let times = Math.floor(size / limit) + 1;
+                while (times > 0) {
+                    let partStr = (text + '').substring(0, limit);
+                    arr.push(partStr);
+                    text = (text + '').substring(limit);
+                    times--;
+                }
+                return arr.filter(item => item);
+            }
         }
+
+
     }
 }
 

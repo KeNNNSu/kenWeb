@@ -39,7 +39,7 @@ public class JournalBookDaoImpl implements JournalBookDao {
     @Override
     public List<JournalBook> findAll() {
         List<Subject> subjects = subjectDao.findAll();
-        String sql = "SELECT * FROM ACC_JOURNALS";
+        String sql = "SELECT * FROM ACC_JOURNALS ORDER BY TIME_DATE DESC";
         List<JournalBookPo> poList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(JournalBookPo.class));
         return poList.stream().map(po -> DataConverter.toDto(po, subjects)).collect(Collectors.toList());
     }
