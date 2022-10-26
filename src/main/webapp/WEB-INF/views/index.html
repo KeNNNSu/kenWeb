@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,27 @@
     <th:block th:replace="common/import :: css" />
     <th:block th:replace="common/import :: js" />
 
+    <style>
+        .img {
+            padding: 10px 30px;
+        }
+    </style>
 </head>
+
 <body>
     <th:block th:replace="common/menu" />
     <div id="content">
-        INDEX
+        <div style="text-align:center;">
+            <h1>系統架構</h1>
+            <img class="img" src="images\system.png" />
+        </div>
+        <br />
+        <div style="text-align:center;">
+            <h1>資料庫架構</h1>
+            <img class="img" src="images\database.png" />
+        </div>
+
     </div>
 </body>
+
 </html>

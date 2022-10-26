@@ -21,7 +21,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
  * [Web Servlet(MVC) 設定檔]
  * </p>
  *
- * @author cano.su
+ * @author ken
  * @since 2022/04/27
  */
 @EnableWebMvc
@@ -41,20 +41,21 @@ public class WebMvcConfig implements WebMvcConfigurer {
     /**
      * [設定 靜態資源]
      *
-     * @author asucanor
-     * @since 2022/04/27
+     * @author ken
+     * @since 2022/06/05
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**/").addResourceLocations("/static/css/");
         registry.addResourceHandler("/js/**/").addResourceLocations("/static/js/");
+        registry.addResourceHandler("/images/**/").addResourceLocations("/static/images/");
     }
 
     /**
      * [設定 模板解析器]
      *
-     * @author asucanor
-     * @since 2021/06/05
+     * @author ken
+     * @since 2022/06/05
      */
     @Bean
     public ITemplateResolver templateResolver() {
@@ -83,8 +84,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * * 自定義方言設定於此
      * </pre>
      *
-     * @author asucanor
-     * @since 2021/06/05
+     * @author ken
+     * @since 2022/06/05
      */
     @Bean
     public SpringTemplateEngine templateEngine() {
@@ -107,8 +108,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     /**
      * [設定 視圖解析器]
      *
-     * @author asucanor
-     * @since 2021/06/05
+     * @author ken
+     * @since 2022/06/05
      */
     @Bean
     public ViewResolver viewResolver() {
