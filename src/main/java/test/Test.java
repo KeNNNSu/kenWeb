@@ -35,10 +35,20 @@ public class Test {
 //        
 //        System.out.println();
 //        
-        for (int i=0;i<b.length();i++) {
-            System.out.println(b.charAt(i)+"1");
+        for (int i = 0; i < b.length(); i++) {
+            System.out.println(b.charAt(i) + "1");
         }
-       
+
+        int flag = Integer.parseInt(a + "");
+        for (int i = 0; i < a; i++) {
+            for (int j = 0; j < a; j++) {
+
+                System.out.print(i < flag ? " " : "*");
+                flag--;
+            }
+            System.out.println();
+//            flag = Integer.parseInt(a + "");
+        }
     }
 
 }
