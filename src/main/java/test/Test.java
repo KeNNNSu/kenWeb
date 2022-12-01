@@ -24,31 +24,12 @@ public class Test {
             }
             System.out.println();
         }
+        
         String b = "abcdefg";
-//        System.out.println(b.charAt(0)+"1");
-//        System.out.println(b.charAt(1)+"1");
-//        System.out.println(b.charAt(2)+"1");
-//        System.out.println(b.charAt(3)+"1");
-//        System.out.println(b.charAt(4)+"1");
-//        System.out.println(b.charAt(5)+"1");
-//        System.out.println(b.charAt(6)+"1");
-//        
-//        System.out.println();
-//        
         for (int i = 0; i < b.length(); i++) {
             System.out.println(b.charAt(i) + "1");
         }
 
-        int flag = Integer.parseInt(a + "");
-        for (int i = 0; i < a; i++) {
-            for (int j = 0; j < a; j++) {
-
-                System.out.print(i < flag ? " " : "*");
-                flag--;
-            }
-            System.out.println();
-//            flag = Integer.parseInt(a + "");
-        }
     }
 
 }
